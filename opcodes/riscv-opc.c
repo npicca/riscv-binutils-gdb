@@ -263,6 +263,14 @@ const struct riscv_opcode riscv_opcodes[] =
 {"bnez",        0, {"C", 0},   "Cs,Cp",  MATCH_C_BNEZ, MASK_C_BNEZ, match_opcode, INSN_ALIAS|INSN_CONDBRANCH },
 {"bnez",        0, {"I", 0},   "s,p",  MATCH_BNE, MASK_BNE | MASK_RS2, match_opcode, INSN_ALIAS|INSN_CONDBRANCH },
 {"bne",         0, {"I", 0},   "s,t,p",  MATCH_BNE, MASK_BNE, match_opcode, INSN_CONDBRANCH },
+
+/* PAC instructions */
+{"auth",        0, {"I", 0},   "d,s,t",  MATCH_AUTH, MASK_AUTH, match_opcode, 0 },
+{"pac",         0, {"I", 0},   "d,s,t",  MATCH_PAC, MASK_PAC, match_opcode, 0 },
+{"packey",      0, {"I", 0},   "s",  MATCH_PACKEY, MASK_PACKEY, match_opcode, 0 },
+{"xpac",        0, {"I", 0},   "d,s",  MATCH_XPAC, MASK_XPAC, match_opcode, 0 },
+
+
 {"addi",        0, {"C", 0},   "Ct,Cc,CK", MATCH_C_ADDI4SPN, MASK_C_ADDI4SPN, match_c_addi4spn, INSN_ALIAS },
 {"addi",        0, {"C", 0},   "d,CU,Cj",  MATCH_C_ADDI, MASK_C_ADDI, match_rd_nonzero, INSN_ALIAS },
 {"addi",        0, {"C", 0},   "d,CU,z",    MATCH_C_NOP, MASK_C_ADDI | MASK_RVC_IMM, match_c_nop, INSN_ALIAS },
